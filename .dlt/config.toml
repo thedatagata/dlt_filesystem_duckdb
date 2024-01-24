@@ -1,0 +1,15 @@
+# put your configuration values here
+export_schema_path="schemas/export"
+import_schema_path="schemas/import"
+
+[runtime]
+log_level="WARNING"  # the system log level of dlt
+# use the dlthub_telemetry setting to enable/disable anonymous usage data reporting, see https://dlthub.com/docs/telemetry
+dlthub_telemetry = true
+
+[sources.filesystem]
+bucket_url = "file:///Users/data_gata/Desktop/pond_water/" 
+userid = "bigint"
+
+[destination.duckdb]
+create_indexes=true

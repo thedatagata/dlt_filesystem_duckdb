@@ -1,0 +1,228 @@
+version: 6
+version_hash: wYLsDc7yboSvmqAJdYXXH5W9z25sVfXWJjoMicKN+Sc=
+engine_version: 8
+name: swamp_hose
+tables:
+  _dlt_version:
+    columns:
+      version:
+        data_type: bigint
+        nullable: false
+      engine_version:
+        data_type: bigint
+        nullable: false
+      inserted_at:
+        data_type: timestamp
+        nullable: false
+      schema_name:
+        data_type: text
+        nullable: false
+      version_hash:
+        data_type: text
+        nullable: false
+      schema:
+        data_type: text
+        nullable: false
+    write_disposition: skip
+    description: Created by DLT. Tracks schema updates
+  _dlt_loads:
+    columns:
+      load_id:
+        data_type: text
+        nullable: false
+      schema_name:
+        data_type: text
+        nullable: true
+      status:
+        data_type: bigint
+        nullable: false
+      inserted_at:
+        data_type: timestamp
+        nullable: false
+      schema_version_hash:
+        data_type: text
+        nullable: true
+    write_disposition: skip
+    description: Created by DLT. Tracks completed loads
+  src_ga_pageviews:
+    columns:
+      user_id:
+        data_type: bigint
+        nullable: true
+      session_id:
+        data_type: bigint
+        nullable: true
+      session_start_time:
+        data_type: bigint
+        nullable: true
+      pageview_timestamp:
+        data_type: timestamp
+        nullable: true
+      hostname:
+        data_type: text
+        nullable: true
+      page_path:
+        data_type: text
+        nullable: true
+      page_title:
+        data_type: text
+        nullable: true
+      page_path_level1:
+        data_type: text
+        nullable: true
+      page_path_level2:
+        data_type: text
+        nullable: true
+      page_path_level3:
+        data_type: text
+        nullable: true
+      page_path_level4:
+        data_type: text
+        nullable: true
+      total_product_impressions:
+        data_type: bigint
+        nullable: true
+      pageview_id:
+        data_type: text
+        nullable: true
+      _dlt_load_id:
+        data_type: text
+        nullable: false
+      _dlt_id:
+        data_type: text
+        nullable: false
+        unique: true
+    write_disposition: append
+  _dlt_pipeline_state:
+    columns:
+      version:
+        data_type: bigint
+        nullable: false
+      engine_version:
+        data_type: bigint
+        nullable: false
+      pipeline_name:
+        data_type: text
+        nullable: false
+      state:
+        data_type: text
+        nullable: false
+      created_at:
+        data_type: timestamp
+        nullable: false
+      version_hash:
+        data_type: text
+        nullable: true
+      _dlt_load_id:
+        data_type: text
+        nullable: false
+      _dlt_id:
+        data_type: text
+        nullable: false
+        unique: true
+    write_disposition: append
+  src_ga_sessions:
+    columns:
+      session_marketing_channel:
+        data_type: text
+        nullable: true
+      session_date:
+        data_type: text
+        nullable: true
+      user_id:
+        data_type: bigint
+        nullable: true
+      session_id:
+        data_type: bigint
+        nullable: true
+      session_sequence_number:
+        data_type: bigint
+        nullable: true
+      session_start_time:
+        data_type: bigint
+        nullable: true
+      session_browser:
+        data_type: text
+        nullable: true
+      session_os:
+        data_type: text
+        nullable: true
+      session_is_mobile:
+        data_type: bool
+        nullable: true
+      session_device_category:
+        data_type: text
+        nullable: true
+      session_country:
+        data_type: text
+        nullable: true
+      session_source:
+        data_type: text
+        nullable: true
+      session_medium:
+        data_type: text
+        nullable: true
+      session_revenue:
+        data_type: double
+        nullable: true
+      session_total_revenue:
+        data_type: double
+        nullable: true
+      session_order_cnt:
+        data_type: bigint
+        nullable: true
+      session_pageview_cnt:
+        data_type: bigint
+        nullable: true
+      session_duration:
+        data_type: bigint
+        nullable: true
+      session_is_first_visit:
+        data_type: bool
+        nullable: true
+      session_landing_screen:
+        data_type: text
+        nullable: true
+      session_exit_screen:
+        data_type: text
+        nullable: true
+      _dlt_load_id:
+        data_type: text
+        nullable: false
+      _dlt_id:
+        data_type: text
+        nullable: false
+        unique: true
+      session_city:
+        data_type: text
+        nullable: true
+      session_region:
+        data_type: text
+        nullable: true
+    write_disposition: append
+settings:
+  detections:
+  - iso_timestamp
+  default_hints:
+    not_null:
+    - _dlt_id
+    - _dlt_root_id
+    - _dlt_parent_id
+    - _dlt_list_idx
+    - _dlt_load_id
+    foreign_key:
+    - _dlt_parent_id
+    root_key:
+    - _dlt_root_id
+    unique:
+    - _dlt_id
+normalizers:
+  names: snake_case
+  json:
+    module: dlt.common.normalizers.json.relational
+previous_hashes:
+- UDoldTcU4LXTNEVQ5nU8COPLMnXNG2QlY2r1ciSd/xI=
+- 8O++vSRTZh9gnipBAWtJgDHG1AlacJFxkoEYZn6pX/c=
+- ufxMaoD+laaMT6AC2+OA7J4PRBcdZRHX/6jmCheiTeQ=
+- sCHQwPDXnh2w5mmiAr7jmsXTcHtc3MD5N29gqA3hEjE=
+- g4db1+pLJyoP3wpRZyEMcZNRI0DA43ecmbBj/51CWXU=
